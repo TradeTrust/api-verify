@@ -13,7 +13,7 @@ provider:
 functions:
   verify:
     description: 'Checks the validity of the document using oa-verify.'
-    handler: src/functionsHandler/index.handler
+    handler: src/functionHandlers/verify/index.handler
     events:
       - http:
           path: /

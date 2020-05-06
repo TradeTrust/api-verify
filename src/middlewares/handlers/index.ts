@@ -8,5 +8,4 @@ export const publicRequestHandler = (handler: any) =>
   middy(handler)
     .use(cors())
     .use(httpSecurityHeaders())
-    .use(JSONErrorHandlerMiddleware())
     .use(withBoundary());

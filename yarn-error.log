@@ -1,0 +1,107 @@
+Arguments: 
+  /home/ec2-user/.nvm/versions/node/v10.20.1/bin/node /home/ec2-user/.nvm/versions/node/v10.20.1/bin/yarn dev --port 8080
+
+PATH: 
+  /home/ec2-user/.nvm/versions/node/v10.20.1/bin:/home/ec2-user/.rvm/gems/ruby-2.6.3/bin:/home/ec2-user/.rvm/gems/ruby-2.6.3@global/bin:/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin:/home/ec2-user/.rvm/gems/ruby-2.6.3/bin:/home/ec2-user/.rvm/gems/ruby-2.6.3@global/bin:/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin:/home/ec2-user/.rvm/gems/ruby-2.6.3/bin:/home/ec2-user/.rvm/gems/ruby-2.6.3@global/bin:/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin:/usr/local/bin:/bin:/usr/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.rvm/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/aws/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/opt/aws/bin:/usr/local/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  10.20.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/ec2-user/environment/tt-verify/package.json: Unexpected token } in JSON at position 1601
+      at JSON.parse (<anonymous>)
+      at /home/ec2-user/.nvm/versions/node/v10.20.1/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/home/ec2-user/.nvm/versions/node/v10.20.1/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /home/ec2-user/.nvm/versions/node/v10.20.1/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "tt-verify-api",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "dev": "IS_OFFLINE=true sls offline start",
+      "dev:test": "IS_OFFLINE=true SMS_OTP_STUBBED=true sls offline start",
+      "deploy": "sls deploy",
+      "depcheck": "depcheck . --ignores=\"serverless-*\"",
+      "sls-config-check": "sls print",
+      "test": "IS_OFFLINE=true SMS_OTP_STUBBED=true jest --testPathPattern=src",
+      "test:ci": "SMS_OTP_STUBBED=true sls offline start --exec 'npm run test && npm run test:integration && npm run test:e2e'",
+      "test:watch": "npm run test -- --watch",
+      "test:integration": "IS_OFFLINE=true jest --testPathPattern=test/integration",
+      "test:e2e": "jest --testPathPattern=test/e2e",
+      "lint": "eslint . --ext ts,js --max-warnings 0",
+      "lint:fix": "npm run lint -- --fix",
+      "typecheck": "tsc --noEmit"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "@govtechsg/oa-verify": "^3.2.0",
+      "@hapi/joi": "^16.1.8",
+      "@middy/core": "^1.0.0-beta.10",
+      "@middy/http-error-handler": "^1.0.0-beta.10",
+      "@middy/http-security-headers": "^1.0.0-beta.10",
+      "aws-sdk": "^2.655.0",
+      "aws-xray-sdk-core": "^2.5.0",
+      "date-fns": "^2.12.0",
+      "debug": "^4.1.1",
+      "http-errors": "^1.7.3",
+      "lodash": "^4.17.15",
+      "middy": "^0.24.0",
+      "middy-middleware-json-error-handler": "^1.0.0",
+      "middy-middleware-jwt-auth": "^3.0.1",
+      "node-cache": "^5.1.0",
+      "node-fetch": "^2.6.0",
+      "serverless": "^1.62.0",
+      "serverless-dotenv-plugin": "^1.2.0",
+      "serverless-http": "^1.10.1",
+    },
+    "devDependencies": {
+      "@babel/preset-env": "^7.9.5",
+      "@babel/preset-typescript": "^7.9.0",
+      "@types/aws-lambda": "^8.10.40",
+      "@types/debug": "^4.1.5",
+      "@types/hapi__joi": "^16.0.12",
+      "@types/jest": "^25.1.1",
+      "@types/lodash": "^4.14.149",
+      "@types/supertest": "^2.0.8",
+      "@types/uuid": "^3.4.7",
+      "@typescript-eslint/eslint-plugin": "^2.28.0",
+      "@typescript-eslint/parser": "^2.28.0",
+      "depcheck": "^0.7.2",
+      "dotenv": "^7.0.0",
+      "eslint": "6.8.0",
+      "eslint-config-airbnb-base": "^14.0.0",
+      "eslint-config-prettier": "^6.7.0",
+      "eslint-plugin-import": "^2.19.1",
+      "eslint-plugin-jest": "^23.1.1",
+      "eslint-plugin-prettier": "^3.1.3",
+      "fork-ts-checker-webpack-plugin": "^4.1.3",
+      "jest": "^25.1.0",
+      "prettier": "^1.19.1",
+      "serverless-dynamodb-local": "^0.2.39",
+      "serverless-offline": "5.12.1",
+      "serverless-webpack": "^5.3.2",
+      "supertest": "^4.0.2",
+      "ts-loader": "^6.2.2",
+      "typescript": "^3.7.5",
+      "webpack": "^4.42.1",
+      "webpack-node-externals": "^1.7.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

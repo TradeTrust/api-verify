@@ -10,5 +10,4 @@ export const publicRequestHandler = (handler: any) => {
     .use(httpSecurityHeaders())
     .use(JSONErrorHandlerMiddleware())
     .use(withBoundary());
-}
-  
+};

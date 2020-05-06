@@ -1,0 +1,29 @@
+service: tradetrust-verify
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'stg'}
+  region: ap-southeast-1
+  environment:
+    NETWORK: '${self:custom.NETWORK.${self:provider.stage}}'
+  tracing:
+    lambda: true
+
+functions:
+  verify:
+    description: 'Checks the validity of the document using oa-verify.'
+    handler: src/functionsHandler/index.handler
+    events:
+      - http:
+          path: /
+          method: post
+          cors: true
+custom:
+  NETWORK:
+    stg: '${env:stg_NETWORK}'
+    prd: '${env:prd_NETWORK}'
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline

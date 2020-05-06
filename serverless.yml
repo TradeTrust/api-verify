@@ -23,7 +23,11 @@ custom:
   NETWORK:
     stg: '${env:stg_NETWORK}'
     prd: '${env:prd_NETWORK}'
-
+  webpack:
+    includeModules: true
+    
 plugins:
+  - serverless-webpack
   - serverless-dotenv-plugin
   - serverless-offline
+

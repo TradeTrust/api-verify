@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: 'circleci/node:12.14.1'
+      - image: "circleci/node:12.14.1"
     steps:
       - checkout
       - run:
@@ -13,11 +13,27 @@ jobs:
           command: npm run test:ci
           environment:
             stg_NETWORK: ropsten
+  deploy:
+    machine:
+        enabled: true
+    steps:
+      - checkout
       - run:
-          name: deploy-staging
+          name: deploy_staging
           command: ./scripts/deploy_staging.sh
+      - run:
+          name: deploy_production
+          command: ./scripts/deploy_production.sh
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
           filters:
             branches:
-              only: 
-              - master
-
+              only:
+                - master

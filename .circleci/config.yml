@@ -20,7 +20,7 @@ jobs:
               ./scripts/deploy_staging.sh
             fi
       - deploy:
-          name: deploy-staging
+          name: deploy-production
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               ./scripts/deploy_production.sh

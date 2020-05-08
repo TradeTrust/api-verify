@@ -13,27 +13,15 @@ jobs:
           command: npm run test:ci
           environment:
             stg_NETWORK: ropsten
-  deploy:
-    machine:
-        enabled: true
-    steps:
-      - checkout
-      - run:
-          name: deploy_staging
-          command: ./scripts/deploy_staging.sh
-      - run:
-          name: deploy_production
-          command: ./scripts/deploy_production.sh
-
-workflows:
-  version: 2
-  build-and-deploy:
-    jobs:
-      - build
       - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - master
+          name: deploy-staging
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ./scripts/deploy_staging.sh
+            fi
+      - deploy:
+          name: deploy-production
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ./scripts/deploy_production.sh
+            fi

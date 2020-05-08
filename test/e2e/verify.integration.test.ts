@@ -6,7 +6,7 @@ const API_ENDPOINT = process.env.ENDPOINT || "http://localhost:3000/";
 
 describe("verify", () => {
   beforeEach(() => {
-    jest.setTimeout(5000);
+    jest.setTimeout(10000);
   });
 
   test("should works for valid Ropsten document", async () => {

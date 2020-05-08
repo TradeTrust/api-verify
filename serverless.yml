@@ -29,7 +29,6 @@ custom:
     prd: '${env:prd_DOMAIN}'
   customDomain:
     domainName: "verify-ropsten.tradetrust.io" # Change this to your domain
-    basePath: "/" # This will be prefixed to all routes
     stage: '${self:provider.stage}'
     certificateName: "${env:CERTIFICATE_DOMAIN}"
     createRoute53Record: true

@@ -28,7 +28,7 @@ custom:
     stg: '${env:stg_DOMAIN}'
     prd: '${env:prd_DOMAIN}'
   customDomain:
-    domainName: "${self:provider.environment.DOMAIN}" # Change this to your domain
+    domainName: "verify-ropsten.tradetrust.io" # Change this to your domain
     basePath: "/" # This will be prefixed to all routes
     stage: '${self:provider.stage}'
     certificateName: "${env:CERTIFICATE_DOMAIN}"

@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: 'circleci/node:12.14.1'
+      - image: "circleci/node:12.14.1"
     steps:
       - checkout
       - run:
@@ -18,6 +18,12 @@ jobs:
           command: ./scripts/deploy_staging.sh
           filters:
             branches:
-              only: 
-              - master
-
+              only:
+                - master
+      - run:
+          name: deploy-production
+          command: ./scripts/deploy_production.sh
+          filters:
+            branches:
+              only:
+                - master

@@ -13,6 +13,3 @@ jobs:
           command: npm run test:ci
           environment:
             stg_NETWORK: ropsten
-      - run:
-          name: build
-          command: npm run build

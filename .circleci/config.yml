@@ -11,6 +11,8 @@ jobs:
       - run:
           name: test
           command: npm run test:ci
+          environment:
+            NETWORK: ropsten
       - run:
           name: build
           command: npm run build
